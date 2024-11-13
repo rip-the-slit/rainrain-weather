@@ -1,6 +1,9 @@
 export default async function (response) {
   const json = await response.json();
-  const description = json.description;
-  const temp = json.days[0]["temp"];
-  return { description, temp };
+  const currentDay = json.days[0];
+  const temp = currentDay.temp;
+  const precipprob = currentDay.precipprob;
+  const cloudcover = currentDay.cloudcover;
+  const conditions = currentDay.conditions;
+  return { temp, precipprob, cloudcover, conditions };
 }

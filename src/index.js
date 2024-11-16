@@ -1,8 +1,9 @@
 import apiCaller from "./api-caller";
 import parse from "./parse";
 
-apiCaller("valle de la pascua")
+apiCaller(prompt("Enter location", "valle de la pascua"))
   .then((response) => {
     return parse(response);
   })
-  .then((data) => console.log(data));
+  .then((data) => alert(JSON.stringify(data)))
+  .catch((err) => alert(err));

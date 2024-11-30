@@ -28,4 +28,12 @@ export default function buildStartPage() {
   searchbox.appendChild(button);
 
   content.appendChild(searchbox);
+
+  return new Promise((resolve) => {
+    button.addEventListener("click", () => {
+      if (search.validity.valid) {
+        resolve(search.value);
+      }
+    });
+  });
 }

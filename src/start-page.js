@@ -1,8 +1,10 @@
 import logo from "./assets/rain-rain.svg";
 import magnify from "./assets/magnify.svg";
 import content from "./index";
+import cleanDOM from "./dom-cleaner";
 
 export default function buildStartPage() {
+  cleanDOM()
   content.classList.add("start");
 
   const img = document.createElement("img");

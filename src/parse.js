@@ -5,5 +5,14 @@ export default async function (response) {
   const precipprob = currentDay.precipprob;
   const cloudcover = currentDay.cloudcover;
   const conditions = currentDay.conditions;
-  return { temp, precipprob, cloudcover, conditions };
+  const windspeed = currentDay.windspeed;
+  const solarradiation = currentDay.solarradiation;
+  return {
+    temp,
+    precipprob,
+    cloudcover,
+    conditions,
+    windspeed,
+    solarradiation,
+  };
 }

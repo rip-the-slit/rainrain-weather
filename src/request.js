@@ -7,7 +7,7 @@ export default function request(query) {
       .then((response) => {
         return parse(response);
       })
-      .then((data) => resolve(JSON.stringify(data)))
+      .then((data) => resolve(data))
       .catch((err) => alert(err));
   });
 }

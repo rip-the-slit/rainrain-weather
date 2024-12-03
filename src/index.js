@@ -2,6 +2,7 @@ import buildStartPage from "./start-page";
 import "./start-page";
 import "./common.css";
 import "./start-page.css";
+import "./result-page.css"
 import detectCloud from "./cloud-detector";
 import request from "./request";
 import buildResultPage from "./result-page";

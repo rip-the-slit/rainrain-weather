@@ -3,7 +3,7 @@ import content from "./index";
 import createTableRow from "./table-row";
 
 export default function buildResultPage(result) {
-  cleanDOM()
+  cleanDOM();
   content.classList.add("result");
 
   const div = document.createElement("div");
@@ -18,10 +18,13 @@ export default function buildResultPage(result) {
   const conditionResult = result.conditions;
   condition.classList.add("condition");
   condition.textContent = conditionResult;
+  if (result.conditions.length >= 10) {
+    condition.style.fontSize = "1.8rem"
+  }
   div.appendChild(condition);
 
   const table = document.createElement("table");
-  table.classList.add("data")
+  table.classList.add("data");
 
   const tbody = document.createElement("tbody");
 

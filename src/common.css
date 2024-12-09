@@ -55,6 +55,16 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+body {
+  display: grid;
+  place-content: center;
+  background: radial-gradient(rgb(58 58 58), black);
+}
+
+.container {
+  position: relative;
+  width: min(100vw, 800px);
+}
 
 .content {
   font-family: "Geist Mono", monospace;
@@ -72,8 +82,8 @@ h6 {
 }
 
 .video {
-  position: fixed;
-  width: 100vw;
+  position: absolute;
+  width: fit-content;
   height: 100vh;
   z-index: 1;
   object-fit: cover;

@@ -78,3 +78,20 @@ h6 {
   z-index: 1;
   object-fit: cover;
 }
+
+.content > div {
+  display: relative;
+}
+
+#close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background: #ef4444;
+  border: 2px groove #ef4444;
+  cursor: pointer;
+  font-size: 0;
+}

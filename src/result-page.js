@@ -1,3 +1,4 @@
+import createCloseButton from "./close-button";
 import cleanDOM from "./dom-cleaner";
 import content from "./index";
 import createTableRow from "./table-row";
@@ -41,6 +42,8 @@ export default function buildResultPage(result) {
   table.appendChild(tbody);
 
   div.appendChild(table);
+
+  div.appendChild(createCloseButton())
 
   content.appendChild(div);
 }

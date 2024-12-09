@@ -1,3 +1,4 @@
+import createCloseButton from "./close-button";
 import cleanDOM from "./dom-cleaner";
 import content from "./index";
 
@@ -38,6 +39,8 @@ export default function buildErrorPage(err) {
   cause.textContent = causeText;
 
   div.appendChild(cause);
+
+  div.appendChild(createCloseButton())
 
   content.appendChild(div);
 }

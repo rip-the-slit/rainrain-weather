@@ -1,6 +1,7 @@
 import createCloseButton from "./close-button";
 import cleanDOM from "./dom-cleaner";
 import content from "./index";
+import { playNormal, playRainy } from "./sound-engine";
 import createTableRow from "./table-row";
 
 export default function buildResultPage(result) {
@@ -20,7 +21,7 @@ export default function buildResultPage(result) {
   condition.classList.add("condition");
   condition.textContent = conditionResult;
   if (result.conditions.length >= 10) {
-    condition.style.fontSize = "1.8rem"
+    condition.style.fontSize = "1.8rem";
   }
   div.appendChild(condition);
 
@@ -43,7 +44,13 @@ export default function buildResultPage(result) {
 
   div.appendChild(table);
 
-  div.appendChild(createCloseButton())
+  div.appendChild(createCloseButton());
 
   content.appendChild(div);
+
+  if (result.precipprob > 50) {
+    playRainy().start();
+  } else {
+    playNormal().start();
+  }
 }

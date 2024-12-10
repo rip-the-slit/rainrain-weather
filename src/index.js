@@ -10,6 +10,4 @@ export default document.querySelector(".content");
 restart()
 
 const bgVideo = document.querySelector(".video");
-bgVideo.addEventListener("loadeddata", () => {
-  detectCloud(bgVideo);
-});
+detectCloud(bgVideo)

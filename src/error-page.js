@@ -1,6 +1,7 @@
 import createCloseButton from "./close-button";
 import cleanDOM from "./dom-cleaner";
 import content from "./index";
+import { playError } from "./sound-engine";
 
 export default function buildErrorPage(err) {
   cleanDOM();
@@ -43,4 +44,6 @@ export default function buildErrorPage(err) {
   div.appendChild(createCloseButton())
 
   content.appendChild(div);
+
+  playError().start(0)
 }

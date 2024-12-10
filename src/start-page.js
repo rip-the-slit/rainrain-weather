@@ -2,6 +2,7 @@ import logo from "./assets/rain-rain.svg";
 import magnify from "./assets/magnify.svg";
 import content from "./index";
 import cleanDOM from "./dom-cleaner";
+import { playSubmit } from "./sound-engine";
 
 export default function buildStartPage() {
   cleanDOM()
@@ -33,6 +34,7 @@ export default function buildStartPage() {
 
   return new Promise((resolve) => {
     button.addEventListener("click", () => {
+      playSubmit().start()
       if (search.validity.valid) {
         resolve(search.value);
       }

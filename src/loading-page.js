@@ -22,8 +22,7 @@ export default function buildLoadingPage() {
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      sound.stop()
-      resolve()
+      resolve(sound)
     }, 4500);
   })
 }

@@ -24,7 +24,7 @@
 
 .data {
   overflow: auto;
-  width: max(100%, 300px);
+  width: 300px;
   height: 150px;
 }
 

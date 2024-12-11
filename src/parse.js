@@ -1,5 +1,6 @@
 export default async function (response) {
   const json = await response.json();
+  const address = json.resolvedAddress;
   const currentDay = json.days[0];
   const temp = currentDay.temp;
   const precipprob = currentDay.precipprob;
@@ -14,5 +15,6 @@ export default async function (response) {
     conditions,
     windspeed,
     solarradiation,
+    address,
   };
 }

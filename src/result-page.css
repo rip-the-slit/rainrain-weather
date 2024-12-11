@@ -11,6 +11,10 @@
   transition: filter 500ms linear;
 }
 
+.address {
+  color: #64748b;
+}
+
 .temp {
   position: relative;
   left: 10px;

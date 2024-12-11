@@ -10,6 +10,11 @@ export default function buildResultPage(result) {
 
   const div = document.createElement("div");
 
+  const address = document.createElement("p")
+  address.classList.add("address")
+  address.textContent = result.address.split(",")[0]
+  div.appendChild(address)
+
   const temp = document.createElement("h1");
   const tempResult = Math.round(result.temp);
   temp.classList.add("temp");

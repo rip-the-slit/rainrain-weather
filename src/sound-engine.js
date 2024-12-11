@@ -4,7 +4,17 @@ import closeUrl from "./assets/close.wav";
 import normalUrl from "./assets/normal.wav";
 import rainyUrl from "./assets/rainy.wav";
 import longingUrl from "./assets/longing.wav";
-export { playSubmit, playError, playClose, playNormal, playRainy, playLonging };
+import toggleAudioUrl from "./assets/toggle-audio.wav";
+export {
+  playSubmit,
+  playError,
+  playClose,
+  playNormal,
+  playRainy,
+  playLonging,
+  playToggleAudio,
+  toggleAudioContext
+};
 
 const audioCtx = new AudioContext();
 
@@ -16,11 +26,13 @@ async function fetchAudioBuffer(url) {
   return audioBuffer;
 }
 
-/* function resumeAudioContext() {
+function toggleAudioContext() {
   if (audioCtx.state == "suspended") {
     audioCtx.resume();
+  } else {
+    audioCtx.suspend();
   }
-} */
+}
 
 function play(bufferSource, loop = false, gain = 1, fadeIn = false) {
   return function () {
@@ -31,7 +43,10 @@ function play(bufferSource, loop = false, gain = 1, fadeIn = false) {
       const gainNode = audioCtx.createGain();
       if (fadeIn) {
         gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(gain, audioCtx.currentTime + 2)
+        gainNode.gain.exponentialRampToValueAtTime(
+          gain,
+          audioCtx.currentTime + 2
+        );
       } else {
         gainNode.gain.setValueAtTime(gain, audioCtx.currentTime);
       }
@@ -49,6 +64,7 @@ const close = await fetchAudioBuffer(closeUrl);
 const normal = await fetchAudioBuffer(normalUrl);
 const rainy = await fetchAudioBuffer(rainyUrl);
 const longing = await fetchAudioBuffer(longingUrl);
+const toggleAudio = await fetchAudioBuffer(toggleAudioUrl);
 
 const playSubmit = play(submit);
 const playError = play(error, false, 1.5);
@@ -56,3 +72,4 @@ const playClose = play(close);
 const playNormal = play(normal);
 const playRainy = play(rainy);
 const playLonging = play(longing, true, 0.7, true);
+const playToggleAudio = play(toggleAudio);

@@ -79,6 +79,13 @@ body {
   right: 10px;
   bottom: 10px;
   z-index: 2;
+  filter: brightness(1.2);
+  transition: all 300ms cubic-bezier(.53,.15,.2,.88);
+}
+
+.sound.paused {
+  transform: scale(0.8);
+  filter: grayscale(100%);
 }
 
 .video {
@@ -104,4 +111,8 @@ body {
   border: 2px groove #ef4444;
   cursor: pointer;
   font-size: 0;
+}
+
+button, dotlottie-player {
+  cursor: pointer;
 }
